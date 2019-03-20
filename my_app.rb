@@ -135,7 +135,6 @@ helpers do
   def sort_todo(list, &block)
     completed_tasks = {}
     incompleted_tasks = {}
-    complete_lists
     list.each_with_index do |hash,index|
       if hash[:completed]
         completed_tasks[hash] = index
@@ -145,7 +144,6 @@ helpers do
     end
     incompleted_tasks.each(&block)
     completed_tasks.each(&block)
-    
   end
 
   
