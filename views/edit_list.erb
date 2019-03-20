@@ -1,0 +1,16 @@
+
+
+<form action ="/todo/<%= params[:nr]%>/edit_list_name" method="post">
+  <dl>
+    <dt>
+      <label for="list_name">Neue Liste einfügen:</label>
+    </dt>
+    <dd>
+      <input name="list_name" placeholder ="Listenname" type="text" values="">
+    </dd>
+    <fieldset class="actions">
+      <input type="submit" value="Hinzufügen">
+      <a href="/todo"> Abbrechen </a>
+    </fieldset>
+  </dl>
+</form>

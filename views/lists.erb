@@ -1,0 +1,11 @@
+<ul id="lists">
+  <% sort_lists(@lists)do |list, i|%>
+    <a href="/todo/<%= i %>">
+    <%= generate_view_for_single_list(list) %>
+    </a>
+  <%end%>
+</ul>
+<!-- Link to add new lists, insert in the main todo layout -->
+<%content_for :header_links do %>
+  <a class = "add" href="/todo/new"> Neue Liste erstellen </a>
+<%end%>

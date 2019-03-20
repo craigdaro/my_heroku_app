@@ -1,0 +1,28 @@
+<section id="todos">
+<header>
+    <h2>Editing "<%= @list[:name] %>"</h2>
+    <ul>
+      <li>
+          <form  action="/todo/<%= params[:nr] %>/destroy" method ="post">
+          <button class="delete" type="submit" > Liste löschen </button>
+          </form>
+        </li>
+    </ul>
+</header>
+</section>
+
+<form action ="/todo/<%= params[:nr]%>/edit_list_name" method ="post">
+  <dl>
+    <dt>
+      <label for ="list_name"> Neuen Namen für die Liste einfügen: </label>
+    </dt>
+    <dd>
+      <input name ="list_name" type="text" placeholder="Item" type="text" value="<%= params[:list_name] || @list[:name] %>">
+    </dd>
+    <fieldset class="actions">
+      <input type="submit" value ="Ändern">
+       <a href="/todo/<%= params[:nr]%>"> Abbrechen </a>
+    </fieldset>
+  </dl>
+</form>
+

@@ -1,2 +1,2 @@
-require "./book_viewer"
+require "./my_app"
 run Sinatra::Application

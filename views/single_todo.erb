@@ -1,0 +1,65 @@
+<section id="todos">
+<header>
+    <h2><%= @list[:name] %></h2>
+    <ul>
+      <li>
+        <form action ="/todo/<%= params[:nr] %>/complete_all" method="post">
+        
+        <%if @list[:todos].any? { |item_hash| !item_hash[:completed] }%> 
+          <button class ="check" type="submit" >
+          Complete all
+        <%else%>
+        <button class ="check" type="submit">
+          Uncomplete all
+        <%end%> 
+        </button>
+        </form>
+      </li>
+      <li>
+        <a  class ="edit" href="/todo/<%= params[:nr] %>/edit_list_name"> Editieren / Löschen </a>
+      </li>
+    </ul>
+</header>
+<ul>
+  <% sort_todo(@list[:todos]) do |item, index| %>
+    <% if item[:completed] %>
+      <li class ="complete">
+    <% else %> 
+      <li>
+    <% end %>
+      <!-- [] check button -->
+        <form action ="/todo/<%= params[:nr] %>/complete_item/<%= params[:item_nr] = index %>" method ="post" class="check">
+          <input type="hidden" name="completed" value="<%= !item[:completed] %>">
+          <button type="submit"> Complete </button>
+        </form>
+        <h3> <%= item[:name] %> </h3> 
+
+        <!-- delete button -->
+        <form class ="delete" action ="/todo/<%= params[:nr] %>/destroy_item/<%= params[:item_nr] = index %>" method="post">
+          <button type="submit"> Löschen </button>
+        </form>
+      </li>
+  <%end%>
+</ul>
+
+<!-- Link to show all Lists => moves to main todo Page -->
+<%content_for :header_links do%>
+  <a href="/todo" class="list"> Alle Listen </a>
+<%end%>
+</section>
+
+
+<form action ="/todo/<%= @nr%>" method ="post">
+  <dl>
+    <dt>
+      <label for ="item_name"> Neues Item einfügen: </label>
+    </dt>
+    <dd>
+      <input id = "todo" name ="item_name" type="text" placeholder="Item" type="text" value="">
+    </dd>
+    <fieldset class="actions">
+      <input type="submit" value ="Add">
+    </fieldset>
+  </dl>
+</form>
+

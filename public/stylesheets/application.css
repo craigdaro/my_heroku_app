@@ -19,7 +19,7 @@ body > header h1 {
   display: inline-block;
   width: 38%;
   font-size: 30px;
-  color: #dd5f4f; 
+  color: #da16b0; 
 }
 
 body > header .actions {
@@ -168,14 +168,14 @@ form fieldset.actions a:hover {
 #lists li:before {
   position: absolute;
   top: 50%;
-  left: 23px;
+  left: 20px;
   z-index: 1;
   width: 16px;
   height: 16px;
   margin: -8px 0 0 0;
   content: "";
   border-radius: 100%;
-  background: #dd5f4f; 
+  background: #2d68d4; 
 }
 
 #lists li.complete:before {
